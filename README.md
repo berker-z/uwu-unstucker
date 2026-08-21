@@ -2,6 +2,10 @@
 
 A local Solana transaction rebuilder for claim flows where a web app generated a transaction, the browser wallet signed it, and the backend failed before co-signing or broadcasting it.
 
+## Why this exists
+
+A sponsored Solana claim broke after the browser wallet signed but before the backend could co-sign and broadcast. The failed transaction was captured from the browser request, inspected, and reconstructed locally. Sponsor-paid pieces were replaced where possible, then the rebuilt transaction was simulated before broadcast.
+
 This is for the common sponsored-claim failure mode:
 
 - the captured transaction has your wallet as a required signer
